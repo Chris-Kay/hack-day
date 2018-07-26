@@ -10,7 +10,9 @@ class App extends Component {
     this.state = {
       message: '',
       username: '',
-      showThankYou: false
+      showThankYou: false,
+      showUsernameMissing: false,
+      showMessageMissing: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,19 +21,21 @@ class App extends Component {
   
 
   handleSubmit(e) {
-    e.preventDefault();
-    const itemsRef = firebase.database().ref('items');
-    const item = {
-      message: this.state.message,
-      user: this.state.username
-    }
+    if(this.state.message !== "" && this.state.username !== "") {
+      e.preventDefault();
+      const itemsRef = firebase.database().ref('items');
+      const item = {
+        message: this.state.message,
+        user: this.state.username
+      }
 
-    this.setState({
-      message: '',
-      username: '',
-      showThankYou: true
-    });
-    itemsRef.push(item);
+      this.setState({
+        message: '',
+        username: '',
+        showThankYou: true
+      });
+      itemsRef.push(item);
+    }
   }
 
   handleChange(e) {
