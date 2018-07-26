@@ -61,8 +61,8 @@ class App extends Component {
         <div className='container'>
           <section className='add-item'>
           <form className="get-involved-form" onSubmit={this.handleSubmit}>
-            <input className="username" type="text" name="username" placeholder="Joe Blogs" onChange={this.handleChange} value={this.state.username} />
-            <textarea className="input-box" align="top" type="text" name="message" placeholder="" onChange={this.handleChange} value={this.state.message} />
+            Name <input className="username" type="text" name="username" placeholder="Joe Blogs" onChange={this.handleChange} value={this.state.username} />
+            Message <textarea className="input-box" align="top" type="text" name="message" placeholder="" onChange={this.handleChange} value={this.state.message} />
             <button className="send-button">Send</button>
         </form>
           </section>

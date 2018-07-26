@@ -20,25 +20,26 @@
 .get-involved-form {
   display: flex;
   flex-direction: column;
+  margin: 8px;
 }
 
 .username {
   width: 300px;
   padding: 8px;
-  margin: 8px;
+  margin: 8px 0;
 }
 
 .input-box {
   width: 400px;
   height: 200px;
   padding: 8px;
-  margin: 8px;
+  margin: 8px 0;
 }
 
 .send-button {
   width: 100px;
   padding: 8px;
-  margin: 8px;
+  margin: 8px 0;
 }
 
 @keyframes App-logo-spin {
