@@ -7,6 +7,8 @@ import './css/bootstrap.css';
 import './css/animate.min.css';
 import './css/light-bootstrap-dashboard.css';
 import './css/demo.css';
+import './css/font-awesome.min.css';
+
 import './fonts/fa-regular-400.woff';
 import './css/pe-icon-7-stroke.css';
 
@@ -39,32 +41,43 @@ class App extends Component {
 
   render() {
 
-    const tableItems = () => 
-    { 
+    const tableItems = () => {
       return this.state.items.map((item) => {
-      console.log(item);
-      return (
-        <tr>
-          <td>{item.user}</td>
-          <td>{item.message}</td>
-        </tr>
-      )})
+        console.log(item);
+        return (
+          <tr>
+            <td>{item.user}</td>
+            <td>{item.message}</td>
+            <td>
+              <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                <label className="btn btn-secondary active approve">
+                  <input type="radio" name="options" id="option1" autoComplete="off" defaultChecked /> Post
+                </label>
+                <label className="btn btn-secondary reject">
+                  <input type="radio" name="options" id="option2" autoComplete="off" /> Reject
+                </label>
+              </div>
+            </td>
+          </tr>
+        )
+      })
     };
 
     return (
       <div className="wrapper">
-        <div className="sidebar" data-color="yellow" data-image="/img/sidebar-5.jpg">
+        <div className="sidebar" data-color="yellow" data-image="img/sidebar-5.jpg">
           <div className="sidebar-wrapper">
+          <div className="sidebar-background" style={{backgroundImage: 'url(https://image.ibb.co/hdkZ9T/sidebar_5.jpg)'}} />
             <div className="logo">
               <a href="#" className="simple-text">
-                Audience Questions
+                Get Involved
                   </a>
             </div>
             <ul className="nav">
               <li className="active">
                 <a href="table.html">
                   <i className="pe-7s-note2" />
-                  <p>Table List</p>
+                  <p>Live Page Involvement</p>
                 </a>
               </li>
               <li>
@@ -86,7 +99,8 @@ class App extends Component {
                   <span className="icon-bar" />
                   <span className="icon-bar" />
                 </button>
-                <a className="navbar-brand" href="#">Live Audience Questions</a>
+                <a className="navbar-brand" href="https://www.bbc.co.uk/sport/live/formula1/44669193">Live Page Involvement - Hungarian GP 1st Practice</a>
+                <p className="uriBar"> <b>URI</b> /sport/live/formula1/44669193</p>
               </div>
               <div className="collapse navbar-collapse">
                 <ul className="nav navbar-nav navbar-left">
@@ -96,24 +110,7 @@ class App extends Component {
                       <p className="hidden-lg hidden-md">Dashboard</p>
                     </a>
                   </li>
-                  <li className="dropdown">
-                    <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-                      <i className="fa fa-globe" />
-                      <b className="caret hidden-sm hidden-xs" />
-                      <span className="notification hidden-sm hidden-xs">5</span>
-                      <p className="hidden-lg hidden-md">
-                        5 Notifications
-                            <b className="caret" />
-                      </p>
-                    </a>
-                    <ul className="dropdown-menu">
-                      <li><a href="#">Notification 1</a></li>
-                      <li><a href="#">Notification 2</a></li>
-                      <li><a href="#">Notification 3</a></li>
-                      <li><a href="#">Notification 4</a></li>
-                      <li><a href="#">Another notification</a></li>
-                    </ul>
-                  </li>
+                  
                   <li>
                     <a href>
                       <i className="fa fa-search" />
@@ -130,19 +127,20 @@ class App extends Component {
                 <div className="col-md-12">
                   <div className="card">
                     <div className="header">
-                      <h4 className="title">Audience Questions</h4>
+                      <h4 className="title">Audience Comments</h4>
                       <p className="category">This is a list with the latest questions from the audience</p>
                     </div>
                     <div className="content table-responsive table-full-width">
                       <table className="table table-hover table-striped">
                         <thead>
                           <tr>
-                            <th className="nameColumn">Name</th>
-                            <th>User Question</th>
+                            <th className="nameColumn">User Name</th>
+                            <th className="messageColumn">User Comment</th>
+                            <th>Actions</th>
                           </tr>
                         </thead>
                         <tbody>
-                            {tableItems()}
+                          {tableItems()}
                         </tbody>
                       </table>
                     </div>

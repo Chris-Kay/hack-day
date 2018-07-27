@@ -1,6 +1,51 @@
 .nameColumn {
     width: 13%;
 }
+.messageColumn {
+    width: 69%;
+}
+
+.btn.active {
+    background-color: #545b62 !important;
+}
+.btn.approve:hover {
+    background-color: green !important;
+}
+.btn.reject:hover {
+    background-color: red !important;
+}
+
+.btn.btn-secondary {
+    background-color: #6c757d !important;
+    color: white;
+}
+
+.btn {
+    border-width: 1px !important;
+}
+
+.sidebar .nav li.active > a,
+.sidebar .nav li > a 
+{
+    color: black !important;
+}
+
+.sidebar .logo .simple-text {
+    color: black !important;
+    font-weight: 700;
+
+}
+
+.navbar-left {
+    float: right !important;
+}
+
+.uriBar {
+    padding-left: 15px;
+    padding-bottom: 15px;
+    font-size: 14px;
+}
+
 
 @media (min-width: 992px){
     .typo-line{

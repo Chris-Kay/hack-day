@@ -22,63 +22,7 @@ var fixedTop = false;
 
 var navbar_initialized = false;
 
-$(document).ready(function(){
-    window_width = $(window).width();
 
-    // check if there is an image set for the sidebar's background
-    lbd.checkSidebarImage();
-
-    // Init navigation toggle for small screens
-    lbd.initRightMenu();
-
-    //  Activate the tooltips
-    $('[rel="tooltip"]').tooltip();
-
-    $('.form-control').on("focus", function(){
-        $(this).parent('.input-group').addClass("input-group-focus");
-    }).on("blur", function(){
-        $(this).parent(".input-group").removeClass("input-group-focus");
-    });
-
-    // Fixes sub-nav not working as expected on IOS
-$('body').on('touchstart.dropdown', '.dropdown-menu', function (e) { e.stopPropagation(); });
-});
-
-$(document).on('click', '.navbar-toggle', function(){
-    $toggle = $(this);
-
-    if(lbd.misc.navbar_menu_visible == 1) {
-        $('html').removeClass('nav-open');
-       lbd.misc.navbar_menu_visible = 0;
-        $('#bodyClick').remove();
-        setTimeout(function(){
-           $toggle.removeClass('toggled');
-       }, 550);
-    } else {
-       setTimeout(function(){
-           $toggle.addClass('toggled');
-       }, 580);
-       div = '<div id="bodyClick"></div>';
-       $(div).appendTo('body').click(function() {
-           $('html').removeClass('nav-open');
-           lbd.misc.navbar_menu_visible = 0;
-            setTimeout(function(){
-               $toggle.removeClass('toggled');
-               $('#bodyClick').remove();
-            }, 550);
-       });
-
-      $('html').addClass('nav-open');
-       lbd.misc.navbar_menu_visible = 1;
-    }
-});
-
-$(window).on('resize', function(){
-    if(navbar_initialized){
-        lbd.initRightMenu();
-        navbar_initialized = true;
-    }
-});
 
 lbd = {
     misc:{
