@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import firebase from './firebase.js'; 
-import './App.css';
+import firebase from './firebase.js';
+import './css/App.css';
+import './css/bootstrap.css';
 
 class App extends Component {
 
@@ -18,10 +19,10 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  
+
 
   handleSubmit(e) {
-    if(this.state.message !== "" && this.state.username !== "") {
+    if (this.state.message !== "" && this.state.username !== "") {
       e.preventDefault();
       const itemsRef = firebase.database().ref('items');
       const item = {
@@ -46,7 +47,7 @@ class App extends Component {
 
   render() {
 
-    if(this.state.showThankYou) {
+    if (this.state.showThankYou) {
       return (
         <div>
           <h1> Thank You, your message is with the editorial team </h1>
@@ -55,29 +56,28 @@ class App extends Component {
     }
 
     return (
+
       <div className='app'>
-        <header>
-            <div className='wrapper'>
-              <h1>Get Involved</h1>
-              
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Get Involved</h5>
+              </div>
+              <div className="modal-body">
+                <form className="get-involved-form" onSubmit={this.handleSubmit}>
+                  Name
+                        <input className="username" type="text" name="username" placeholder="Joe Blogs" onChange={this.handleChange} value={this.state.username}
+                  /> Message
+                        <textarea className="input-box" align="top" type="text" name="message" placeholder="" onChange={this.handleChange} value={this.state.message}
+                  />
+                  <div className="modal-footer">
+                    <button className="btn btn-primary send-button">Send</button>
+                  </div>
+                </form>
+              </div>
             </div>
-        </header>
-        <div className='container'>
-          <section className='add-item'>
-          <form className="get-involved-form" onSubmit={this.handleSubmit}>
-            Name <input className="username" type="text" name="username" placeholder="Joe Blogs" onChange={this.handleChange} value={this.state.username} />
-            Message <textarea className="input-box" align="top" type="text" name="message" placeholder="" onChange={this.handleChange} value={this.state.message} />
-            <button className="send-button">Send</button>
-        </form>
-          </section>
-          <section className='display-item'>
-            <div className='wrapper'>
-              <ul>
-              </ul>
-            </div>
-          </section>
+          </div>
         </div>
-      </div>
     );
   }
 }
